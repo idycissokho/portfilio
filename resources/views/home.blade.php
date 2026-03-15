@@ -27,10 +27,7 @@
     <h2 class="text-3xl font-bold mb-12 text-center">À <span class="gradient-text">propos</span></h2>
     <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="flex justify-center">
-            {{-- Remplace cette div par ton image : <img src="/images/photo.jpg" class="w-56 h-56 rounded-full object-cover ring-4 ring-indigo-500"> --}}
-            <div class="w-56 h-56 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-7xl ring-4 ring-indigo-500">
-                👨‍💻
-            </div>
+            <img src="/moi.jpg" class="w-56 h-56 rounded-full object-cover ring-4 ring-indigo-500">
         </div>
         <div class="text-gray-400 space-y-4 text-lg">
             <p>Je suis un ingénieur logiciel junior expérimenté, spécialisé dans la création d'applications robustes et intuitives.</p>
