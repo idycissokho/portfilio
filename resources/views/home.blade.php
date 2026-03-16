@@ -26,10 +26,10 @@
 <section id="about" class="py-24 px-6 max-w-5xl mx-auto">
     <h2 class="text-3xl font-bold mb-12 text-center">À <span class="gradient-text">propos</span></h2>
     <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div class="flex justify-center">
+        <div class="flex justify-center reveal-left">
             <img src="/moi.jpg" class="w-56 h-56 rounded-full object-cover ring-4 ring-indigo-500">
         </div>
-        <div class="text-gray-400 space-y-4 text-lg">
+        <div class="text-gray-400 space-y-4 text-lg reveal-right">
             <p>Je suis un ingénieur logiciel junior expérimenté, spécialisé dans la création d'applications robustes et intuitives.</p>
             <p>Avec une maîtrise approfondie des technologies frontend et backend, je conçois des solutions complètes allant du mobile au web.</p>
             <div class="flex gap-4 mt-2 text-sm text-gray-500">
@@ -101,7 +101,14 @@
 <section id="projects" class="py-24 px-6 bg-gray-900/50">
     <div class="max-w-5xl mx-auto">
         <h2 class="text-3xl font-bold mb-12 text-center">Mes <span class="gradient-text">projets</span></h2>
-        <div class="grid md:grid-cols-3 gap-8">
+
+        {{-- Projets académiques --}}
+        <h3 class="text-lg font-semibold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-3">
+            <span class="flex-1 h-px bg-gray-700"></span>
+            Projets académiques
+            <span class="flex-1 h-px bg-gray-700"></span>
+        </h3>
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
 
             @foreach([
                 [
@@ -125,6 +132,20 @@
                     ['Flutter'],
                     '🌤️'
                 ],
+                [
+                    'Association des Anciens Élèves du Lycée de Tivaouane',
+                    '2025 — En ligne',
+                    'Site institutionnel premium pour la génération 1993–1997 : espace membre, actualités, événements, galerie et dashboard complet.',
+                    ['Laravel', 'Tailwind CSS', 'MySQL'],
+                    '🏫'
+                ],
+                [
+                    'Cabinet Dentaire de Mbao',
+                    '2024 — En ligne',
+                    'Site vitrine pour un cabinet dentaire : présentation des services, système de réservation, FAQ, informations et témoignages patients.',
+                    ['WordPress'],
+                    '🦺'
+                ],
             ] as [$title, $period, $desc, $tags, $emoji])
             <div class="bg-gray-800 rounded-2xl overflow-hidden card-hover">
                 <div class="h-40 bg-gradient-to-br from-indigo-600/30 to-purple-600/30 flex items-center justify-center text-5xl">
@@ -134,11 +155,21 @@
                     <span class="text-indigo-400 text-xs font-semibold">{{ $period }}</span>
                     <h3 class="font-bold text-lg mt-1 mb-2">{{ $title }}</h3>
                     <p class="text-gray-400 text-sm mb-4">{{ $desc }}</p>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap gap-2 mb-4">
                         @foreach($tags as $tag)
                         <span class="text-xs bg-indigo-600/20 text-indigo-400 px-3 py-1 rounded-full">{{ $tag }}</span>
                         @endforeach
                     </div>
+                    @if($title === 'Association des Anciens Élèves du Lycée de Tivaouane')
+                    <div class="flex gap-4 text-sm">
+                        <a href="https://github.com/idycissokho/association_eleve_tivaoune" target="_blank" class="text-gray-400 hover:text-white transition"><i class="fab fa-github mr-1"></i>Code</a>
+                        <a href="https://gen9397.com/" target="_blank" class="text-gray-400 hover:text-white transition"><i class="fas fa-external-link-alt mr-1"></i>Demo</a>
+                    </div>
+                    @elseif($title === 'Cabinet Dentaire de Mbao')
+                    <div class="flex gap-4 text-sm">
+                        <a href="https://www.dentistembao.com/" target="_blank" class="text-gray-400 hover:text-white transition"><i class="fas fa-external-link-alt mr-1"></i>Demo</a>
+                    </div>
+                    @endif
                 </div>
             </div>
             @endforeach
