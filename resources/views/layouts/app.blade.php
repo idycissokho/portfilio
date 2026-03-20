@@ -27,12 +27,16 @@
         }
     </script>
     <style>
-        body { background-color: #0f172a; color: #f1f5f9; }
-        body.light { background-color: #f8fafc; color: #0f172a; }
-        body.light .bg-secondary { background-color: #ffffff; }
-        body.light .bg-tertiary { background-color: #f1f5f9; }
-        body.light .text-secondary { color: #475569; }
-        body.light .border-color { border-color: #e2e8f0; }
+        body { background-color: #0f172a; color: #f1f5f9; transition: background-color 0.3s, color 0.3s; }
+        html.light body { background-color: #f1f5f9; color: #0f172a; }
+        html.light nav { background-color: rgba(255,255,255,0.95) !important; border-color: #e2e8f0 !important; }
+        html.light section, html.light footer { background-color: #f8fafc !important; }
+        html.light .bg-\[\#0f172a\], html.light .bg-\[\#1e293b\] { background-color: #ffffff !important; }
+        html.light .bg-\[\#334155\] { background-color: #e2e8f0 !important; }
+        html.light .text-\[\#94a3b8\], html.light .text-\[\#64748b\] { color: #475569 !important; }
+        html.light .text-white { color: #0f172a !important; }
+        html.light .border-\[\#334155\] { border-color: #e2e8f0 !important; }
+        html.light #progress-bar { background: linear-gradient(to right, #2563eb, #ea580c); }
         .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(37,99,235,0.15); }
     </style>
@@ -132,10 +136,18 @@
         // Toggle thème
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
+
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.add('light');
+            themeIcon.classList.replace('fa-sun', 'fa-moon');
+        }
+
         themeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            themeIcon.classList.toggle('fa-sun');
-            themeIcon.classList.toggle('fa-moon');
+            document.documentElement.classList.toggle('light');
+            const isLight = document.documentElement.classList.contains('light');
+            themeIcon.classList.toggle('fa-sun', !isLight);
+            themeIcon.classList.toggle('fa-moon', isLight);
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
         });
     </script>
 </body>
