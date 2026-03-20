@@ -22,7 +22,7 @@
             {{-- Stats --}}
             <div class="grid grid-cols-2 gap-3 w-full h-24">
                 <div class="bg-[#1e293b] rounded-xl border-2 border-[#334155] hover:border-blue-600 transition-all duration-300 hover:scale-105 cursor-pointer group flex flex-col items-center justify-center text-center h-full">
-                    <p class="text-3xl font-bold text-blue-500 group-hover:scale-110 transition-transform duration-300">2+</p>
+                    <p class="text-3xl font-bold text-blue-500 group-hover:scale-110 transition-transform duration-300">3+</p>
                     <p class="text-[#64748b] text-xs mt-1 group-hover:text-[#94a3b8] transition-colors">Années d'Exp.</p>
                 </div>
                 <div class="bg-[#1e293b] rounded-xl border-2 border-[#334155] hover:border-orange-600 transition-all duration-300 hover:scale-105 group flex flex-col items-center justify-center text-center h-full">
